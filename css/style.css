@@ -1,0 +1,1360 @@
+:root {
+    --cor-primaria: #001f3f;      /* Azul-Marinho */
+    --cor-secundaria: #40E0D0;   /* Turquesa */
+    --cor-destaque: #ffc107;      /* Mantido para elementos específicos se necessário */
+    --cor-texto: #333;
+    --cor-fundo: #f4f4f4;         /* Cinza-Claro */
+    --cor-branco: #ffffff;
+    --font-titulo: 'Montserrat', sans-serif;
+    --font-corpo: 'Lato', sans-serif;
+}
+
+/* Estilos gerais */
+body {
+    font-family: var(--font-corpo);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+h1, h2, h3, h4, h5, h6, .logo {
+    font-family: var(--font-titulo);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.container nav ul li a{
+    font-weight: 600;
+    font-size: large;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+    
+}
+
+/* Header */
+header {
+    background-color: var(--cor-branco);
+    color: var(--cor-primaria);
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Sombra suave */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Aumentando o espaçamento */
+    margin: 0;
+}
+
+header nav a {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative; /* Necessário para o sublinhado animado */
+    padding-bottom: 0.5rem; /* Espaço para o sublinhado */
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cor-secundaria);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+header nav a:hover {
+    color: var(--cor-secundaria);
+}
+
+header nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+header nav .admin-link {
+    background-color: var(--cor-destaque);
+    color: var(--cor-primaria);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+header nav .admin-link:hover {
+    background-color: #e6ac00;
+    color: var(--cor-primaria);
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    color: var(--cor-branco);
+    text-align: center;
+}
+
+.banner-slide img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.banner-text h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+/* Seção de Busca */
+.busca {
+    background-color: var(--cor-branco);
+    padding: 2rem 0;
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+}
+
+.busca h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.busca form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.busca form input, .busca form select {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.busca form button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branco);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.busca form button:hover {
+    background-color: #166ab0;
+}
+
+/* Seções */
+main section {
+    padding: 4rem 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: var(--cor-primaria);
+}
+
+/* Categorias */
+.categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.categoria-item {
+    position: relative;
+    text-align: center;
+    color: var(--cor-branco);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.categoria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: transform 0.4s ease;
+}
+
+.categoria-item:hover img {
+    transform: scale(1.1);
+}
+
+.categoria-item h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Imóveis Recentes/Destaque */
+.imoveis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.imovel-card {
+    background-color: var(--cor-branco);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.imovel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+.imovel-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.imovel-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz o conteúdo crescer para preencher o espaço */
+    gap: 1rem; /* Adiciona espaço entre os elementos internos */
+}
+
+.imovel-card-content h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.imovel-card .preco {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-secundaria);
+    margin: 0.5rem 0;
+}
+
+.imovel-card .localizacao {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.imovel-card-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1.5rem;
+    color: #555;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.card-feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-feature-item i {
+    font-size: 1.5rem;
+    color: var(--cor-secundaria);
+}
+
+.card-feature-item span {
+    font-size: 0.9rem;
+}
+
+.btn-detalhes {
+    display: inline-block;
+    margin-top: auto; /* Chave para o alinhamento */
+    background-color: var(--cor-destaque);
+    color: var(--cor-primaria);
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-detalhes:hover {
+    background-color: #e6ac00;
+}
+
+/* Estilos de Botões de Ação (CTA) */
+.btn-cta {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px; /* Cantos levemente arredondados */
+    font-weight: 700;
+    font-family: var(--font-titulo);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-cta:hover {
+    background-color: transparent;
+    color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Seção Sobre Nós */
+.sobre-nos {
+    background-color: var(--cor-branco);
+}
+
+.sobre-nos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.sobre-nos-imagem img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.sobre-nos-conteudo h2 {
+    text-align: left;
+}
+
+.sobre-nos-conteudo p {
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
+    padding: 3rem 0 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.footer-content h3 {
+    color: var(--cor-destaque);
+    margin-bottom: 1rem;
+}
+
+.footer-content p, .footer-redes a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-redes a:hover {
+    color: var(--cor-branco);
+}
+
+.footer-redes {
+    display: flex;
+    flex-direction: column; /* Empilha os itens verticalmente */
+    gap: 1rem;
+}
+
+.footer-redes div a {
+    font-size: 1.5rem;
+    margin-right: 1rem; /* Adiciona espaço entre os ícones */
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-redes div a:hover {
+    color: var(--cor-branco);
+}
+
+.footer-bottom {
+    border-top: 1px solid #2a4a63;
+    text-align: center;
+    padding: 1.5rem 0;
+    color: #aaa;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .banner-text h1 {
+        font-size: 2rem;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .busca form {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+
+    .sobre-nos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* === ESTILOS PÁGINA DE LISTAGEM === */
+
+.filtros-pagina-listagem {
+    background-color: var(--cor-branco);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin: 2rem 0;
+}
+
+.filtros-pagina-listagem h2 {
+    margin-top: 0;
+    text-align: left;
+    font-size: 1.8rem;
+}
+
+.form-filtros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.filtro-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.filtro-item label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.filtro-item input,
+.filtro-item select {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.btn-filtrar {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branco);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-filtrar:hover {
+    background-color: #166ab0;
+}
+
+/* Header da Listagem */
+.listagem-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.listagem-header h3 {
+    margin: 0;
+    font-weight: 500;
+}
+
+.view-options {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.view-options span {
+    margin-right: 0.5rem;
+}
+
+.view-btn {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #555;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.view-btn i {
+    font-size: 1.2rem;
+}
+
+.view-btn:hover {
+    background-color: #e9e9e9;
+}
+
+.view-btn.active {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branco);
+    border-color: var(--cor-secundaria);
+}
+
+/* Visualização em Lista */
+.imoveis-list .imovel-list-item {
+    display: flex;
+    background-color: var(--cor-branco);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imoveis-list .imovel-list-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+.imoveis-list .imovel-list-item img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.imoveis-list .imovel-list-content {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.imoveis-list .imovel-list-content h3 {
+    margin-top: 0;
+}
+
+.map-view {
+    width: 100%;
+    height: 500px;
+    background-color: #e9e9e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+/* === ESTILOS PÁGINA DE DETALHES === */
+
+main > .container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.detalhe-imovel-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.detalhe-principal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.imovel-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--cor-primaria);
+    line-height: 1.2;
+}
+
+.imovel-header .localizacao {
+    font-size: 1.2rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Galeria de Imagens */
+.galeria-imovel .imagem-principal img {
+    width: 100%;
+    border-radius: 12px;
+    max-height: 550px;
+    object-fit: cover;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border: 1px solid #ddd;
+}
+
+.thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.thumbnail-item {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.thumbnail-item:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.thumbnail-item.active {
+    opacity: 1;
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 10px rgba(28, 118, 194, 0.5);
+}
+
+/* Seções de Informação */
+.descricao-imovel, .caracteristicas-imovel, .video-tour, .localizacao-mapa {
+    background-color: var(--cor-branco);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
+}
+
+.descricao-imovel h2, .caracteristicas-imovel h2, .video-tour h2, .localizacao-mapa h2 {
+    text-align: left;
+    font-size: 1.8rem;
+    margin-top: 0;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+    color: var(--cor-primaria);
+}
+
+.descricao-imovel p {
+    line-height: 1.7;
+    color: #444;
+    font-size: 1.05rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 2rem;
+    padding-top: 1.5rem;
+}
+
+.feature-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.feature-item div {
+    font-size: 2.2rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 0.8rem;
+    height: 40px; /* Altura fixa para o ícone */
+    display: flex;
+    align-items: center;
+}
+
+.feature-item span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: block;
+    color: var(--cor-texto);
+}
+
+.feature-item p {
+    margin: 0.25rem 0 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Mapa na página de detalhes */
+#mapa-detalhe {
+    height: 450px;
+    width: 100%;
+    border-radius: 12px;
+    background-color: #f0f2f5; /* Cor de fundo enquanto o mapa carrega */
+    z-index: 1; /* Garante que o mapa fique visível */
+    border: 1px solid #ddd;
+}
+
+/* Vídeo Tour */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 12px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar */
+.detalhe-sidebar {
+    position: sticky;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-card {
+    background-color: var(--cor-branco);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.preco-detalhe {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cor-secundaria);
+    margin: 0 0 0.5rem 0;
+    line-height: 1;
+}
+
+.condominio, .iptu {
+    color: #555;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 0.75rem;
+}
+
+.iptu {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.acoes-sidebar {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-whatsapp, .btn-contato-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+}
+.btn-whatsapp:hover {
+    background-color: #1EBE57;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.btn-contato-form {
+    background-color: var(--cor-destaque);
+    color: var(--cor-primaria);
+}
+.btn-contato-form:hover {
+    background-color: #ffcd33;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
+}
+
+.acoes-sidebar i {
+    margin-right: 0.75rem;
+    font-size: 1.3rem;
+}
+
+.compartilhar-sidebar {
+    margin-top: 1.5rem;
+}
+
+.compartilhar-sidebar p {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-align: center;
+    color: #333;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: #777;
+    transition: color 0.3s, transform 0.3s;
+}
+.social-icon:hover {
+    color: var(--cor-secundaria);
+    transform: scale(1.2);
+}
+
+.form-contato-imovel h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--cor-primaria);
+}
+
+.form-contato-imovel form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-contato-imovel input, .form-contato-imovel textarea {
+    width: 100%;
+    padding: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-contato-imovel button {
+    padding: 1rem;
+    background-color: var(--cor-secundaria);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-contato-imovel button:hover {
+    background-color: #166ab0;
+}
+
+/* Botão Flutuante do WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+/* Estilos do Menu Hambúrguer e Responsividade do Cabeçalho */
+.menu-hamburger {
+    display: none; /* Escondido por padrão */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--cor-primaria);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .banner-text h1 {
+        font-size: 2rem;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .busca form {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+
+    header nav ul {
+        display: none; /* Esconde o menu normal */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-branco);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        padding: 1rem 0;
+        gap: 0;
+    }
+
+    header nav ul.active {
+        display: flex; /* Mostra o menu quando ativo */
+    }
+
+    header nav li {
+        text-align: center;
+        width: 100%;
+    }
+
+    header nav a {
+        padding: 1rem 0;
+        display: block;
+        width: 100%;
+    }
+
+    header nav a::after {
+        display: none; /* Remove o efeito de sublinhado no mobile para simplicidade */
+    }
+
+    .menu-hamburger {
+        display: flex; /* Mostra o ícone do hambúrguer */
+    }
+
+    /* Animação do ícone de hambúrguer para "X" */
+    .menu-hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
+/* Responsividade Detalhes */
+@media (max-width: 992px) {
+    .detalhe-imovel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detalhe-sidebar {
+        position: static;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .imovel-header h1 {
+        font-size: 2.2rem;
+    }
+    .preco-detalhe {
+        font-size: 2rem;
+    }
+}
+
+/* Estilos da Página "Anuncie seu Imóvel" - Layout Novo */
+.anunciar-imovel-page {
+    padding: 5rem 0;
+    background-color: var(--cor-fundo);
+}
+
+.anunciar-imovel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.anunciar-info-col h1 {
+    font-size: 2.8rem;
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.anunciar-info-col .subtitulo {
+    font-size: 1.3rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.anunciar-info-col p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.anunciar-info-col h2 {
+    font-size: 1.8rem;
+    color: var(--cor-primaria);
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cor-secundaria);
+    display: inline-block;
+    text-align: left;
+}
+
+.anunciar-info-col ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.anunciar-info-col .passos-lista li {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.anunciar-info-col .passos-lista li::before {
+    content: '✓';
+    color: var(--cor-secundaria);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.anunciar-info-col .beneficios-lista li {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.anunciar-info-col .beneficios-lista .fas {
+    color: var(--cor-secundaria);
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.anunciar-info-col .cta-final {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--cor-primaria);
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #e8f9f7;
+    border-left: 5px solid var(--cor-secundaria);
+    border-radius: 0 8px 8px 0;
+}
+
+.anunciar-form-col .form-container {
+    background-color: var(--cor-branco);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.anunciar-form-col h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: var(--cor-primaria);
+}
+
+#form-anuncio .form-grid-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+#form-anuncio .input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+#form-anuncio .input-group.full-width {
+    grid-column: 1 / -1;
+}
+
+#form-anuncio label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+}
+
+#form-anuncio input,
+#form-anuncio select,
+#form-anuncio textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#form-anuncio input:focus,
+#form-anuncio select:focus,
+#form-anuncio textarea:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.3);
+}
+
+#form-anuncio .btn-submit {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-titulo);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+}
+
+#form-anuncio .btn-submit:hover {
+    background-color: #2dbdb0;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 992px) {
+    .anunciar-imovel-grid {
+        grid-template-columns: 1fr;
+    }
+    .anunciar-info-col {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #form-anuncio .form-grid-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+#form-feedback {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+#form-feedback.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#form-feedback.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilos das Seções de Imóveis Destaque */
+.imoveis-destaque {
+    padding: 4rem 0;
+}
+
+.secao-imoveis {
+    margin-bottom: 4rem;
+}
+
+.secao-imoveis h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: var(--cor-primaria);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.secao-imoveis h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--cor-secundaria);
+}
+
+.imoveis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.card-imovel {
+    background-color: var(--cor-branco);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+}
+
+.card-imovel:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+.card-imovel img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-imovel-content {
+    padding: 1.5rem;
+}
+
+.card-imovel-content h3 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--cor-primaria);
+}
+
+.card-imovel-content .preco {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cor-secundaria);
+    margin-bottom: 1rem;
+}
+
+.card-imovel-icones {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #777;
+}
+
+.card-imovel-icones span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.card-imovel-icones .fas {
+    color: var(--cor-secundaria);
+    font-size: 1.1rem;
+}
+
+.card-imovel-content .btn-cta {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}

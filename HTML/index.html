@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Imobiliária Valor - Imóveis à Venda e para Alugar</title>
+    <meta name="description" content="Encontre a casa dos seus sonhos! A Imobiliária Valor oferece os melhores apartamentos e casas à venda e para aluguel. Anuncie seu imóvel conosco.">
+    <link rel="canonical" href="https://www.imobiliariavalor.com.br/">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:title" content="Imobiliária Valor - Encontre o Imóvel dos Seus Sonhos">
+    <meta property="og:description" content="Navegue por nossa seleção de casas e apartamentos de alta qualidade. Seja para comprar ou alugar, temos a opção perfeita para você.">
+    <meta property="og:image" content="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg">
+    <meta property="og:url" content="https://www.imobiliariavalor.com.br/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Imobiliária Valor - Imóveis à Venda e para Alugar">
+    <meta name="twitter:description" content="Encontre a casa dos seus sonhos! A Imobiliária Valor oferece os melhores apartamentos e casas à venda e para aluguel.">
+    <meta name="twitter:image" content="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo" ><img src="images/img-Logo.png" alt=""></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="imoveis.html">Imóveis</a></li>
+                    <li><a href="anunciar-imovel.html">Anuncie seu Imóvel</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="login.html" class="admin-link">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="menu-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <div class="banner-slide">
+                <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Imóvel de luxo com piscina">
+                <div class="banner-text">
+                    <h1>Encontre o imóvel dos seus sonhos</h1>
+                    <p>As melhores opções de casas, apartamentos e terrenos para você.</p>
+                </div>
+            </div>
+
+            <!-- Adicionar mais slides aqui se necessário -->
+
+        </section>
+
+        <section class="busca">
+            <div class="container">
+                <h2>Busca Rápida</h2>
+                <form>
+                    <select name="finalidade">
+                        <option value="venda">Comprar</option>
+                        <option value="locacao">Alugar</option>
+                    </select>
+                    <input type="text" name="bairro" placeholder="Digite o bairro ou cidade">
+                    <select name="tipo">
+                        <option value="">Tipo de Imóvel</option>
+                        <option value="casa">Casa</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="comercial">Comercial</option>
+                        <option value="terreno">Terreno</option>
+                    </select>
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="categorias" class="categorias">
+            <div class="container">
+                <h2>Navegue por Categorias</h2>
+                <div class="categorias-grid">
+                    <a href="imoveis.html?tipo=Apartamento" class="categoria-item">
+                        <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Apartamentos">
+                        <h3>Apartamentos</h3>
+                    </a>
+                    <a href="imoveis.html?tipo=Casa" class="categoria-item">
+                        <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Casas">
+                        <h3>Casas</h3>
+                    </a>
+                    <a href="imoveis.html?tipo=Comercial" class="categoria-item">
+                        <img src="https://images.pexels.com/photos/269077/pexels-photo-269077.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Imóveis Comerciais">
+                        <h3>Comerciais</h3>
+                    </a>
+                    <a href="imoveis.html?tipo=Terreno" class="categoria-item">
+                        <img src="https://images.pexels.com/photos/164558/pexels-photo-164558.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Terrenos">
+                        <h3>Terrenos</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="recentes" class="recentes">
+            <div class="container">
+                <h2>Imóveis em Destaque</h2>
+                <div class="imoveis-grid">
+                    <!-- Imóvel 1 -->
+                    <div class="imovel-card">
+                        <img src="https://images.pexels.com/photos/210617/pexels-photo-210617.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Casa moderna">
+                        <div class="imovel-card-content">
+                            <h3>Casa Moderna no Centro</h3>
+                            <p class="preco">R$ 850.000</p>
+                            <p class="localizacao">Centro, Cidade Exemplo</p>
+                            <div class="imovel-card-features">
+                                <span><i class="fas fa-bed"></i> 3 Quartos</span>
+                                <span><i class="fas fa-bath"></i> 2 Banh.</span>
+                                <span><i class="fas fa-car"></i> 2 Vagas</span>
+                            </div>
+                            <a href="detalhe-imovel.html" class="btn-detalhes">Ver Detalhes</a>
+                        </div>
+                    </div>
+                    <!-- Imóvel 2 -->
+                    <div class="imovel-card">
+                        <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Apartamento com vista">
+                        <div class="imovel-card-content">
+                            <h3>Apartamento com Vista Mar</h3>
+                            <p class="preco">R$ 1.200.000</p>
+                            <p class="localizacao">Beira Mar, Cidade Exemplo</p>
+                            <div class="imovel-card-features">
+                                <span><i class="fas fa-bed"></i> 2 Quartos</span>
+                                <span><i class="fas fa-bath"></i> 2 Banh.</span>
+                                <span><i class="fas fa-car"></i> 1 Vaga</span>
+                            </div>
+                            <a href="detalhe-imovel.html" class="btn-detalhes">Ver Detalhes</a>
+                        </div>
+                    </div>
+                    <!-- Imóvel 3 -->
+                    <div class="imovel-card">
+                        <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sala comercial">
+                        <div class="imovel-card-content">
+                            <h3>Sala Comercial Ampla</h3>
+                            <p class="preco">R$ 4.500/mês</p>
+                            <p class="localizacao">Área Industrial, Cidade Exemplo</p>
+                            <div class="imovel-card-features">
+                                <span><i class="fas fa-ruler-combined"></i> 150 m²</span>
+                                <span><i class="fas fa-bath"></i> 1 Banh.</span>
+                                <span><i class="fas fa-car"></i> 4 Vagas</span>
+                            </div>
+                            <a href="detalhe-imovel.html" class="btn-detalhes">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="imoveis-destaque">
+            <div class="container">
+                <!-- Seção de Imóveis de Luxo -->
+                <div class="secao-imoveis">
+                    <h2>Imóveis de Luxo</h2>
+                    <div class="imoveis-grid" id="imoveis-luxo-grid">
+                        <!-- Card de Imóvel Exemplo -->
+                        <article class="card-imovel">
+                            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Imóvel de Luxo 1">
+                            <div class="card-imovel-content">
+                                <h3>Casa Moderna com Piscina</h3>
+                                <p class="preco">R$ 2.500.000</p>
+                                <div class="card-imovel-icones">
+                                    <span><i class="fas fa-bed"></i> 4</span>
+                                    <span><i class="fas fa-bath"></i> 5</span>
+                                    <span><i class="fas fa-car"></i> 3</span>
+                                    <span><i class="fas fa-ruler-combined"></i> 450 m²</span>
+                                </div>
+                                <a href="#" class="btn-cta">Ver Detalhes</a>
+                            </div>
+                        </article>
+                        <!-- Fim do Card -->
+                    </div>
+                </div>
+
+                <!-- Seção de Imóveis para Aluguel -->
+                <div class="secao-imoveis">
+                    <h2>Imóveis para Aluguel</h2>
+                    <div class="imoveis-grid" id="imoveis-aluguel-grid">
+                        <!-- Card de Imóvel Exemplo -->
+                        <article class="card-imovel">
+                            <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Imóvel para Aluguel 1">
+                            <div class="card-imovel-content">
+                                <h3>Apartamento Aconchegante no Centro</h3>
+                                <p class="preco">R$ 3.500 /mês</p>
+                                <div class="card-imovel-icones">
+                                    <span><i class="fas fa-bed"></i> 2</span>
+                                    <span><i class="fas fa-bath"></i> 2</span>
+                                    <span><i class="fas fa-car"></i> 1</span>
+                                    <span><i class="fas fa-ruler-combined"></i> 80 m²</span>
+                                </div>
+                                <a href="#" class="btn-cta">Ver Detalhes</a>
+                            </div>
+                        </article>
+                        <!-- Fim do Card -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="sobre_nos">
+            <div class="container">
+                <div class="sobre-nos-grid">
+                    <div class="sobre-nos-imagem">
+                        <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Equipe da Imobiliária Valor">
+                    </div>
+                    <div class="sobre-nos-conteudo">
+                        <h2>Sobre a Imobiliária Valor</h2>
+                        <p>Fundada em 2010, a Imobiliária Valor nasceu com a missão de transformar o processo de compra e venda de imóveis em uma experiência transparente, segura e gratificante. Com uma equipe de corretores experientes e apaixonados pelo mercado, nos dedicamos a entender as necessidades de cada cliente para oferecer soluções personalizadas.</p>
+                        <p>Nossos valores são a ética, a confiança e a excelência no atendimento. Acreditamos que encontrar o imóvel ideal é mais do que uma transação comercial; é a realização de um sonho. Estamos aqui para ajudar você em cada passo dessa jornada.</p>
+                        <a href="#contato" class="btn-detalhes">Fale Conosco</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-sobre">
+                    <h3>Imobiliária Valor</h3>
+                    <p>Ajudando você a encontrar o lugar perfeito para chamar de lar. Entre em contato conosco e descubra as melhores oportunidades.</p>
+                </div>
+                <div class="footer-contato">
+                    <h3>Contato</h3>
+                    <p><i class="fab fa-whatsapp"></i> (99) 99999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@imobiliariavalor.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123, Centro</p>
+                </div>
+                <div class="footer-redes">
+                    <h3>Siga-nos</h3>
+                    <div>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Imobiliária Valor. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <a href="https://wa.me/5599999999999?text=Olá!%20Gostaria%20de%20mais%20informações." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>

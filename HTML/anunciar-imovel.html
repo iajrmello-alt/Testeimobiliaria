@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuncie seu Imóvel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><img src="images/img-Logo.png" alt=""></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="imoveis.html">Imóveis</a></li>
+                    <li><a href="anunciar-imovel.html">Anuncie seu Imóvel</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="login.html" class="admin-link">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="menu-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="anunciar-imovel-page">
+            <div class="container">
+                <div class="anunciar-imovel-grid">
+                    <div class="anunciar-info-col">
+                        <h1>Alugue ou Venda seu Imóvel Sem Complicação</h1>
+                        <p class="subtitulo">A forma mais rápida e segura de transformar seu patrimônio em lucro.</p>
+                        
+                        <p>Cansado da burocracia e da demora? Deixe-nos cuidar de tudo. Com a nossa expertise, seu imóvel estará nos principais portais do mercado, alcançando o inquilino ou comprador ideal em tempo recorde.</p>
+
+                        <h2>Como Funciona (Apenas 3 Passos)</h2>
+                        <ul class="passos-lista">
+                            <li><strong>Sua Jornada Começa Aqui:</strong> Preencha nosso formulário em menos de 5 minutos. É rápido e fácil.</li>
+                            <li><strong>Visibilidade Máxima:</strong> Seu imóvel não será apenas mais um na internet. Ele será destaque nos maiores portais do país, recebendo a atenção que merece e gerando mais leads qualificados.</li>
+                            <li><strong>Fechamento Ágil e Seguro:</strong> Nossa equipe de especialistas cuida de toda a negociação e documentação, garantindo um processo tranquilo e lucrativo para você.</li>
+                        </ul>
+
+                        <h2>O Que Você Ganha:</h2>
+                        <ul class="beneficios-lista">
+                            <li><i class="fas fa-clock"></i> Economia de Tempo e Dinheiro</li>
+                            <li><i class="fas fa-chart-line"></i> Resultados Comprovados</li>
+                            <li><i class="fas fa-headset"></i> Atendimento Exclusivo</li>
+                        </ul>
+
+                        <p class="cta-final">"Sua meta é alugar ou vender? Nós temos a solução. Preencha o formulário agora e transforme seu imóvel em renda sem dor de cabeça."</p>
+                    </div>
+                    <div class="anunciar-form-col">
+                        <div class="form-container">
+                            <h3>Preencha para Anunciar</h3>
+                            <form id="form-anuncio">
+                                <div class="form-grid-inner">
+                                    <div class="input-group">
+                                        <label for="nome">Seu Nome Completo</label>
+                                        <input type="text" id="nome" name="nome" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="email">Seu E-mail</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+                                    <div class="input-group full-width">
+                                        <label for="telefone">Seu Telefone (com DDD)</label>
+                                        <input type="tel" id="telefone" name="telefone" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="tipo-imovel">Tipo do Imóvel</label>
+                                        <select id="tipo-imovel" name="tipo-imovel" required>
+                                            <option value="">Selecione...</option>
+                                            <option value="casa">Casa</option>
+                                            <option value="apartamento">Apartamento</option>
+                                            <option value="terreno">Terreno</option>
+                                            <option value="comercial">Comercial</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="area">Área (m²)</label>
+                                        <input type="number" id="area" name="area" min="0">
+                                    </div>
+                                    <div class="input-group full-width">
+                                        <label for="endereco">Endereço do Imóvel</label>
+                                        <input type="text" id="endereco" name="endereco" required>
+                                    </div>
+                                    <div class="input-group full-width">
+                                        <label for="mensagem">Mensagem Adicional</label>
+                                        <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-submit">Enviar Anúncio</button>
+                            </form>
+                            <div id="form-feedback" class="hidden"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Imobiliária Valor. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

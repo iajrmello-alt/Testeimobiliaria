@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imobiliária</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Leaflet.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><img src="images/img-Logo.png" alt=""></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="imoveis.html">Imóveis</a></li>
+                    <li><a href="anunciar-imovel.html">Anuncie seu Imóvel</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="login.html" class="admin-link">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="menu-hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="detalhe-imovel-grid">
+                <div class="detalhe-principal">
+                    <section class="imovel-header">
+                        <h1>Casa Moderna no Centro</h1>
+                        <p class="localizacao"><i class="fas fa-map-marker-alt"></i> Centro, Cidade Exemplo</p>
+                    </section>
+
+                    <section class="galeria-imovel">
+                        <div class="imagem-principal">
+                            <img src="images/imovel1-large.jpg" alt="Vista principal do imóvel" id="imagem-destaque">
+                        </div>
+                        <div class="thumbnails">
+                            <img src="images/imovel1-thumb1.jpg" alt="Thumbnail 1" class="thumbnail-item active">
+                            <img src="images/imovel1-thumb2.jpg" alt="Thumbnail 2" class="thumbnail-item">
+                            <img src="images/imovel1-thumb3.jpg" alt="Thumbnail 3" class="thumbnail-item">
+                            <img src="images/imovel1-thumb4.jpg" alt="Thumbnail 4" class="thumbnail-item">
+                        </div>
+                    </section>
+
+                    <section class="descricao-imovel">
+                        <h2>Descrição</h2>
+                        <p>
+                            Esta casa moderna, localizada no coração da cidade, oferece o equilíbrio perfeito entre conforto e conveniência. Com um design de interiores elegante e acabamentos de alta qualidade, é o lugar ideal para quem busca um estilo de vida sofisticado. A área de estar em conceito aberto é perfeita para receber amigos e familiares.
+                        </p>
+                    </section>
+
+                    <section class="caracteristicas-imovel">
+                        <h2>Características</h2>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>200 m²</span>
+                                <p>Área útil</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-bed"></i>
+                                <span>3</span>
+                                <p>Quartos</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-bath"></i>
+                                <span>2</span>
+                                <p>Banheiros</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-car"></i>
+                                <span>2</span>
+                                <p>Vagas</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="video-tour">
+                        <h2>Vídeo Tour</h2>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </section>
+
+                    <section class="localizacao-mapa">
+                        <h2>Localização no Mapa</h2>
+                        <div id="mapa-detalhe"></div>
+                    </section>
+                </div>
+
+                <aside class="detalhe-sidebar">
+                    <div class="sidebar-card">
+                        <p class="preco-detalhe">R$ 850.000</p>
+                        <p class="condominio">Condomínio: R$ 250/mês</p>
+                        <p class="iptu">IPTU: R$ 1.200/ano</p>
+
+                        <div class="acoes-sidebar">
+                            <a href="https://wa.me/5599999999999?text=Olá!%20Tenho%20interesse%20na%20Casa%20Moderna%20no%20Centro." target="_blank" class="btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Agendar Visita
+                            </a>
+                        </div>
+
+                        <div class="compartilhar-sidebar">
+                            <p>Compartilhe:</p>
+                            <div class="redes-sociais">
+                                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contato">
+        <!-- Rodapé idêntico ao das outras páginas -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-sobre">
+                    <h3>Imobiliária Valor</h3>
+                    <p>Ajudando você a encontrar o lugar perfeito para chamar de lar.</p>
+                </div>
+                <div class="footer-contato">
+                    <h3>Contato</h3>
+                    <p><i class="fab fa-whatsapp"></i> (99) 99999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@imobiliariavalor.com</p>
+                </div>
+                <div class="footer-redes">
+                    <h3>Siga-nos</h3>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Imobiliária Valor. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5599999999999?text=Olá!%20Gostaria%20de%20mais%20informações." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Leaflet.js JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

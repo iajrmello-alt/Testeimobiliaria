@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Administração - Imobiliária Valor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active" data-target="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#" data-target="add-imovel"><i class="fas fa-plus-circle"></i> Adicionar Imóvel</a></li>
+                    <li><a href="index.html" target="_blank"><i class="fas fa-globe"></i> Ver Site</a></li>
+                    <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="admin-content">
+            <!-- Seção Dashboard -->
+            <section id="dashboard" class="admin-section active">
+                <h1>Dashboard</h1>
+                <p>Bem-vindo ao painel de administração. Aqui você pode gerenciar os imóveis do seu site.</p>
+                <h2>Imóveis Cadastrados</h2>
+                <div id="imoveis-list-admin">
+                    <!-- Lista de imóveis será carregada aqui -->
+                </div>
+            </section>
+
+            <!-- Seção Adicionar/Editar Imóvel -->
+            <section id="add-imovel" class="admin-section">
+                <h1 id="form-title">Adicionar Novo Imóvel</h1>
+                <form id="imovel-form">
+                    <input type="hidden" id="imovel-id">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="titulo">Título do Imóvel</label>
+                            <input type="text" id="titulo" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="preco">Preço (Ex: 850000 ou 4500/mês)</label>
+                            <input type="text" id="preco" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="localizacao">Localização (Bairro, Cidade)</label>
+                            <input type="text" id="localizacao" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="tipo-imovel">Tipo</label>
+                            <select id="tipo-imovel">
+                                <option value="Casa">Casa</option>
+                                <option value="Apartamento">Apartamento</option>
+                                <option value="Comercial">Comercial</option>
+                                <option value="Terreno">Terreno</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="quartos">Quartos</label>
+                            <input type="number" id="quartos" value="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="banheiros">Banheiros</label>
+                            <input type="number" id="banheiros" value="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="vagas">Vagas de Garagem</label>
+                            <input type="number" id="vagas" value="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="area">Área (m²)</label>
+                            <input type="number" id="area" value="0">
+                        </div>
+                        <div class="input-group full-width">
+                            <label for="fotos">Fotos do Imóvel</label>
+                            <input type="file" id="fotos" multiple accept="image/*">
+                            <div id="fotos-preview" class="fotos-preview"></div>
+                        </div>
+                        <div class="input-group full-width">
+                            <label for="descricao">Descrição</label>
+                            <textarea id="descricao" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" id="save-imovel-btn">Salvar Imóvel</button>
+                    <button type="button" id="cancel-edit-btn" style="display: none;">Cancelar Edição</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>

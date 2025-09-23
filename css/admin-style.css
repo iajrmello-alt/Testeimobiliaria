@@ -1,0 +1,289 @@
+:root {
+    --admin-bg: #f0f2f5;
+    --sidebar-bg: #ffffff;
+    --primary-text: #333;
+    --secondary-text: #666;
+    --accent-color: #1c76c2;
+    --white: #fff;
+    --border-color: #e0e0e0;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --danger-color: #e74c3c;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: var(--admin-bg);
+    color: var(--primary-text);
+}
+
+/* --- PÁGINA DE LOGIN --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+
+.login-box .input-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.login-box label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-box button:hover {
+    background-color: #166ab0;
+}
+
+.error-message {
+    color: var(--danger-color);
+    margin-top: 1rem;
+    min-height: 1.2em;
+}
+
+
+/* --- PAINEL DE ADMINISTRAÇÃO --- */
+.admin-wrapper {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background: var(--sidebar-bg);
+    height: 100vh;
+    position: fixed;
+    box-shadow: var(--shadow);
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    color: var(--accent-color);
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    color: var(--secondary-text);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    background-color: var(--admin-bg);
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.admin-content {
+    margin-left: 250px;
+    padding: 2rem;
+    width: calc(100% - 250px);
+}
+
+.admin-section {
+    display: none;
+}
+
+.admin-section.active {
+    display: block;
+}
+
+h1 {
+    color: var(--primary-text);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+/* Formulário de Imóvel */
+#imovel-form {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.input-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#imovel-form button {
+    margin-top: 1.5rem;
+    padding: 0.9rem 1.8rem;
+    border: none;
+    border-radius: 4px;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#save-imovel-btn {
+    background-color: var(--accent-color);
+}
+#save-imovel-btn:hover {
+    background-color: #166ab0;
+}
+
+#cancel-edit-btn {
+    background-color: var(--secondary-text);
+}
+#cancel-edit-btn:hover {
+    background-color: #555;
+}
+
+/* Lista de Imóveis no Admin */
+#imoveis-list-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.imovel-admin-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.imovel-admin-card img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.imovel-admin-info {
+    flex-grow: 1;
+}
+
+.imovel-admin-info h4 {
+    margin: 0 0 0.5rem 0;
+}
+
+.imovel-admin-info p {
+    margin: 0;
+    color: var(--secondary-text);
+}
+
+.imovel-admin-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    transition: color 0.3s;
+}
+
+.imovel-admin-actions .edit-btn {
+    color: var(--accent-color);
+}
+.imovel-admin-actions .edit-btn:hover {
+    color: #166ab0;
+}
+
+.imovel-admin-actions .delete-btn {
+    color: var(--danger-color);
+}
+.imovel-admin-actions .delete-btn:hover {
+    color: #c0392b;
+}
+
+/* Pré-visualização de Fotos */
+.fotos-preview {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.fotos-preview img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}

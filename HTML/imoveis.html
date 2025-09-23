@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imobiliária</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><img src="images/img-Logo.png" alt=""></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="imoveis.html">Imóveis</a></li>
+                    <li><a href="anunciar-imovel.html">Anuncie seu Imóvel</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="login.html" class="admin-link">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="menu-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="filtros-pagina-listagem">
+                <h2>Encontre seu Imóvel</h2>
+                <form class="form-filtros">
+                    <div class="filtro-item">
+                        <label for="finalidade">Finalidade</label>
+                        <select id="finalidade" name="finalidade">
+                            <option value="comprar">Comprar</option>
+                            <option value="alugar">Alugar</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <label for="tipo">Tipo de Imóvel</label>
+                        <select id="tipo" name="tipo">
+                            <option value="">Todos</option>
+                            <option value="apartamento">Apartamento</option>
+                            <option value="casa">Casa</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="terreno">Terreno</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade">
+                    </div>
+                    <div class="filtro-item">
+                        <label for="quartos">Quartos</label>
+                        <select id="quartos" name="quartos">
+                            <option value="">Todos</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <label for="preco-min">Preço Mínimo</label>
+                        <input type="number" id="preco-min" name="preco-min" placeholder="Ex: 100000">
+                    </div>
+                    <div class="filtro-item">
+                        <label for="preco-max">Preço Máximo</label>
+                        <input type="number" id="preco-max" name="preco-max" placeholder="Ex: 500000">
+                    </div>
+                    <div class="filtro-item">
+                        <button type="submit" class="btn-filtrar">Buscar Imóveis</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="listagem-imoveis">
+                <div class="listagem-header">
+                    <h3 class="resultados-contagem">Exibindo 12 resultados</h3>
+                    <div class="view-options">
+                        <span>Visualizar como:</span>
+                        <button id="view-grid" class="view-btn active"><i class="fas fa-th"></i> Grade</button>
+                        <button id="view-list" class="view-btn"><i class="fas fa-bars"></i> Lista</button>
+                    </div>
+                </div>
+
+                <div id="grid-container" class="imoveis-grid">
+                    <!-- Imóveis serão inseridos aqui (exemplo abaixo) -->
+                    <div class="imovel-card">
+                        <img src="images/imovel1.jpg" alt="Casa moderna">
+                        <div class="imovel-card-content">
+                            <h3>Casa Moderna no Centro</h3>
+                            <p class="preco">R$ 850.000</p>
+                            <p class="localizacao">Centro, Cidade Exemplo</p>
+                            <div class="imovel-card-features">
+                                <span><i class="fas fa-bed"></i> 3 Quartos</span>
+                                <span><i class="fas fa-bath"></i> 2 Banh.</span>
+                                <span><i class="fas fa-car"></i> 2 Vagas</span>
+                            </div>
+                            <a href="detalhe-imovel.html" class="btn-detalhes">Ver Detalhes</a>
+                        </div>
+                    </div>
+                     <div class="imovel-card">
+                        <img src="images/imovel2.jpg" alt="Apartamento com vista">
+                        <div class="imovel-card-content">
+                            <h3>Apartamento com Vista Mar</h3>
+                            <p class="preco">R$ 1.200.000</p>
+                            <p class="localizacao">Beira Mar, Cidade Exemplo</p>
+                            <div class="imovel-card-features">
+                                <span><i class="fas fa-bed"></i> 2 Quartos</span>
+                                <span><i class="fas fa-bath"></i> 2 Banh.</span>
+                                <span><i class="fas fa-car"></i> 1 Vaga</span>
+                            </div>
+                            <a href="detalhe-imovel.html" class="btn-detalhes">Ver Detalhes</a>
+                        </div>
+                    </div>
+                    <div class="imovel-card">
+                        <img src="images/imovel3.jpg" alt="Sala comercial">
+                        <div class="imovel-card-content">
+                            <h3>Sala Comercial Ampla</h3>
+                            <p class="preco">R$ 4.500/mês</p>
+                            <p class="localizacao">Área Industrial, Cidade Exemplo</p>
+                            <div class="imovel-card-features">
+                                <span><i class="fas fa-ruler-combined"></i> 150 m²</span>
+                                <span><i class="fas fa-bath"></i> 1 Banh.</span>
+                                <span><i class="fas fa-car"></i> 4 Vagas</span>
+                            </div>
+                            <a href="detalhe-imovel.html" class="btn-detalhes">Ver Detalhes</a>
+                        </div>
+                    </div>
+                    <!-- Repetir para outros imóveis -->
+                </div>
+
+                <div id="list-container" class="imoveis-list" style="display:none;">
+                    <!-- Visualização em lista será gerada aqui -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contato">
+        <!-- O mesmo rodapé do index.html -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-sobre">
+                    <h3>Imobiliária Valor</h3>
+                    <p>Ajudando você a encontrar o lugar perfeito para chamar de lar.</p>
+                </div>
+                <div class="footer-contato">
+                    <h3>Contato</h3>
+                    <p><i class="fab fa-whatsapp"></i> (99) 99999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@imobiliariavalor.com</p>
+                </div>
+                <div class="footer-redes">
+                    <h3>Siga-nos</h3>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Imobiliária Valor. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5599999999999?text=Olá!%20Gostaria%20de%20mais%20informações." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
