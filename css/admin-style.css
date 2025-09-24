@@ -22,17 +22,39 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 1rem;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    box-sizing: border-box;
 }
 
 .login-box {
     background: var(--white);
     padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
     text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 2rem;
+        margin: 1rem;
+    }
 }
 
 .login-box h2 {
@@ -53,21 +75,43 @@ body {
 
 .login-box input {
     width: 100%;
-    padding: 0.8rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.login-box input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(28, 118, 194, 0.1);
 }
 
 .login-box button {
     width: 100%;
-    padding: 0.9rem;
+    padding: 1rem;
     background-color: var(--accent-color);
     color: var(--white);
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.login-box button:hover {
+    background-color: #166ab0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(28, 118, 194, 0.2);
+}
+
+.login-box button:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 .login-box button:hover {
@@ -84,14 +128,28 @@ body {
 /* --- PAINEL DE ADMINISTRAÇÃO --- */
 .admin-wrapper {
     display: flex;
+    min-height: 100vh;
+    position: relative;
 }
 
 .sidebar {
     width: 250px;
     background: var(--sidebar-bg);
-    height: 100vh;
+    min-height: 100vh;
     position: fixed;
     box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-250px);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
 }
 
 .sidebar-header {
@@ -131,6 +189,37 @@ body {
     margin-left: 250px;
     padding: 2rem;
     width: calc(100% - 250px);
+    position: relative;
+}
+
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+    background: var(--accent-color);
+    color: var(--white);
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .admin-content {
+        margin-left: 0;
+        width: 100%;
+    }
 }
 
 .admin-section {
@@ -158,8 +247,25 @@ h1 {
 
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #imovel-form {
+        padding: 1rem;
+    }
+    
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+        font-size: 16px; /* Evita zoom em dispositivos móveis */
+    }
 }
 
 .input-group {
@@ -227,6 +333,39 @@ h1 {
     padding: 1rem;
     border-radius: 8px;
     box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.imovel-admin-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 576px) {
+    .imovel-admin-card {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .imovel-admin-card img {
+        width: 100%;
+        height: 150px;
+    }
+    
+    .imovel-admin-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .imovel-admin-actions button {
+        margin: 0;
+        padding: 0.5rem 1rem;
+        background: var(--admin-bg);
+        border-radius: 4px;
+    }
 }
 
 .imovel-admin-card img {
