@@ -1,0 +1,224 @@
+/* Variáveis do Menu */
+:root {
+    --menu-transition: 0.3s ease;
+    --menu-width: min(80vw, 400px);
+    --header-height: 70px;
+    --menu-item-height: 48px;
+}
+
+/* Header Base */
+header {
+    background-color: var(--cor-branco);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    display: block;
+    max-width: 150px;
+    z-index: 1001;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+/* Menu de Navegação */
+nav {
+    flex: 1;
+    margin-left: var(--spacing-xl);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-base);
+    display: inline-block;
+    min-height: var(--menu-item-height);
+    line-height: var(--menu-item-height);
+    position: relative;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    outline: none;
+}
+
+nav ul li a:focus-visible {
+    box-shadow: 0 0 0 3px var(--cor-primaria);
+}
+
+/* Menu Hamburguer */
+.menu-hamburger {
+    display: none;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+    background: transparent;
+    border: none;
+    border-radius: var(--border-radius-sm);
+}
+
+.menu-hamburger:focus {
+    outline: none;
+}
+
+.menu-hamburger:focus-visible {
+    box-shadow: 0 0 0 3px var(--cor-primaria);
+}
+
+.menu-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--cor-texto);
+    transition: transform var(--menu-transition),
+                opacity var(--menu-transition);
+    position: absolute;
+    left: 12px;
+}
+
+.menu-hamburger span:nth-child(1) {
+    top: 16px;
+}
+
+.menu-hamburger span:nth-child(2) {
+    top: 23px;
+}
+
+.menu-hamburger span:nth-child(3) {
+    top: 30px;
+}
+
+/* Estado ativo do menu hamburguer */
+.menu-hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .menu-hamburger {
+        display: block;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: calc(-1 * var(--menu-width));
+        width: var(--menu-width);
+        height: 100vh;
+        background-color: var(--cor-branco);
+        margin: 0;
+        padding: calc(var(--header-height) + 1rem) 1.5rem 2rem;
+        transition: transform var(--menu-transition);
+        box-shadow: none;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    nav[aria-hidden="false"] {
+        transform: translateX(calc(-1 * var(--menu-width)));
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Overlay quando o menu está aberto */
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity var(--menu-transition),
+                    visibility var(--menu-transition);
+        z-index: 999;
+    }
+
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Melhorias de acessibilidade para dispositivos móveis */
+    nav ul li a {
+        min-height: 44px;
+        line-height: 44px;
+        margin: 4px 0;
+    }
+
+    nav ul li a:focus-visible {
+        box-shadow: 0 0 0 3px var(--cor-primaria);
+        outline: none;
+    }
+}
+
+/* Previne scroll quando menu está aberto */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Indicador de página atual */
+nav ul li a[aria-current="page"] {
+    background-color: var(--cor-primaria-claro);
+    color: var(--cor-branco);
+}

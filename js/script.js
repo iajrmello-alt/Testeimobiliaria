@@ -1,9 +1,50 @@
+// Utility functions
+const SafeStorage = {
+    set: (key, value) => {
+        try {
+            localStorage.setItem(key, JSON.stringify(value));
+        } catch (e) {
+            console.error('Erro ao salvar dados:', e);
+        }
+    },
+    get: (key, defaultValue = []) => {
+        try {
+            const data = localStorage.getItem(key);
+            return data ? JSON.parse(data) : defaultValue;
+        } catch (e) {
+            console.error('Erro ao ler dados:', e);
+            return defaultValue;
+        }
+    }
+};
+
+const sanitizeInput = (input) => {
+    if (typeof input === 'string') {
+        return DOMPurify.sanitize(input);
+    }
+    if (Array.isArray(input)) {
+        return input.map(item => sanitizeInput(item));
+    }
+    if (typeof input === 'object' && input !== null) {
+        const sanitized = {};
+        for (const [key, value] of Object.entries(input)) {
+            sanitized[key] = sanitizeInput(value);
+        }
+        return sanitized;
+    }
+    return input;
+};
+
+import { ImoveisService } from './services/ImoveisService.js';
+import { ImovelCard } from './components/ImovelCard.js';
+
 document.addEventListener('DOMContentLoaded', function() {
+    const imoveisService = new ImoveisService();
     const page = window.location.pathname.split("/").pop();
 
     // Função para popular com dados iniciais se o localStorage estiver vazio
     function popularDadosIniciais() {
-        let imoveis = JSON.parse(localStorage.getItem('imoveis')) || [];
+        let imoveis = SafeStorage.get('imoveis', []);
         if (imoveis.length === 0) {
             imoveis = [
                 {
@@ -66,17 +107,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function createImovelCard(imovel) {
-        const precoFormatado = imovel.preco.includes('/mês') 
-            ? imovel.preco 
-            : new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(imovel.preco);
+        // Sanitizar dados do imóvel
+        const safeImovel = sanitizeInput(imovel);
+        
+        const precoFormatado = safeImovel.preco.includes('/mês') 
+            ? safeImovel.preco 
+            : new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(safeImovel.preco);
 
-        return `
+        // Criar o template com os dados sanitizados
+        const template = `
             <div class="imovel-card">
-                <img src="${imovel.imagem || 'images/placeholder.jpg'}" alt="${imovel.titulo}">
+                <img src="${safeImovel.imagem || 'images/placeholder.jpg'}" 
+                     alt="${safeImovel.titulo}"
+                     loading="lazy"
+                     onerror="this.src='images/placeholder.jpg'">
                 <div class="imovel-card-content">
-                    <h3>${imovel.titulo}</h3>
+                    <h3>${safeImovel.titulo}</h3>
                     <p class="preco">${precoFormatado}</p>
-                    <p class="localizacao">${imovel.localizacao}</p>
+                    <p class="localizacao">${safeImovel.localizacao}</p>
                     <div class="imovel-card-features">
                         ${imovel.area > 0 ? `<div class="card-feature-item">
                             <i class="fa-solid fa-ruler-combined"></i>
